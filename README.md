@@ -1,25 +1,22 @@
-WASp
-====
+Trasser
+=======
 
 ## How to run this
 
 1. Install it
 
    ```bash
-   pip install git+https://github.com/LoicGrobol/wasp.git
+   pip install git+https://github.com/LoicGrobol/trasser.git
    ```
 
-2. Run it on your conll file
+2. Run it on your trs files
 
    ```bash
-   wasp myfile.conll
+   trasser f1.trs f2.trs
    ```
 
 3. See the help for more details
 
    ```bash
-   wasp --help
+   trasser --help
    ```
-
-**W**eighted **A**ccuracy for **Sp**ans which has almost nothing to do with what this does, help me
-find a better acronym.
