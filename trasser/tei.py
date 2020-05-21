@@ -24,12 +24,12 @@ def get_text(
         texts = []
         if not blacklist(elt):  # type: ignore (https://github.com/python/mypy/issues/2608)
             if elt.text is not None and not elt.text.isspace():
-                texts.append(elt.text.strip())
+                texts.append(elt.text)
             for child in elt:
                 texts.extend(aux(child))
         # The tail is not part of the node, so don't ignore it !
         if elt.tail is not None and not elt.tail.isspace():
-            texts.append(elt.tail.strip())
+            texts.append(elt.tail)
         return texts
 
     texts = aux(elt)
