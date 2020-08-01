@@ -7,6 +7,12 @@ from typing import List, Optional
 import trasser.tei
 
 
+TEI = "{http://www.tei-c.org/ns/1.0}"
+XML = "{http://www.w3.org/XML/1998/namespace}"
+
+NSMAP = {"tei": TEI[1:-1], "xml": XML[1:-1]}
+
+
 @click.group()
 def cli():
     pass
@@ -55,7 +61,7 @@ def tei(
 
     for f in inpt:
         tree = lxml.etree.parse(f)  # nosec
-        for e in tree.xpath(lines_xpath):
+        for e in tree.xpath(lines_xpath, namespaces=NSMAP):
             if forbidden_attrs is not None:
                 if any(
                     p.tag in blacklist_set
